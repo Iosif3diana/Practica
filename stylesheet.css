@@ -1,0 +1,32 @@
+#menu {
+	position: fixed;
+	top: 10px;
+	left: 60%;
+	background-color: #C0C0C0;
+	font-size: 25px;
+	margin-left: -340px;
+}
+
+
+.center{
+	margin-left: 600px;
+	margin-top: 100px;
+	width: 180px;
+	height: 280px;
+}
+
+a{
+	margin-left:20px;
+	margin-right:20px;
+}
+
+#data{
+	margin-left:300px;
+	margin-right:300px;
+	margin-top:100px;
+}
+
+#button{
+	margin-left:500px;
+	
+}s
