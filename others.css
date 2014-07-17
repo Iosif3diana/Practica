@@ -1,0 +1,32 @@
+html{
+	background-color:#CCCCFF;
+	border:dashed;
+}
+
+body{
+	
+}
+
+#menu {
+	position: fixed;
+	top: 10px;
+	left: 60%;
+	background-color: #C0C0C0;
+	font-size: 25px;
+	margin-left:-340px;
+}
+	
+#data{
+	margin-left:300px;
+	margin-right:300px;
+	margin-top:100px;
+	
+}
+
+.center{
+	margin-left: 600px;
+	margin-top: 120px;
+	width: 180px;
+	height: 280px;
+}
+
