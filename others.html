@@ -6,15 +6,36 @@
 </head>
 
 <body>
-	<div id="menu">
-		<div>
-			<a href="home.html",style="text-align:left", id="1">Home</a>
-			<a href="food.html",id="1">Food</a>
-			<a href="bills.html",id="1">Bills</a>
-			<a href="clothes.html",id="1">Clothes</a>
-			<a href="others.html",style="text-align:right",id="1">Others</a>
-		
+		<div class="topMenu" id="topMenuBorder">
+			<div id="caracterIcon">
+				<img src="https://raw.githubusercontent.com/OccultScripto/Cyber-Me/master/logo_20140718.png">
+			</div>
+
+			<div id="userName">
+				<h2>Username</h2>
+			</div>
+
+			<div id="scoreWrapper">
+				<div id="score">
+					<h2>1234</h2>
+				</div>
+					<div id="scoreIcon">
+						<img src="https://cdn3.iconfinder.com/data/icons/pyconic-icons-3-1/512/coins-128.png">
+						<i class="fa fa-trophy fa-2x"></i>
+					</div>
+				</div>
 		</div>
+		
+	<div id="navbar">
+		<ul>
+			<li><a href="bills.html">Bills</a></li>
+			
+			<li><a href="food.html">Food</a></li>
+			
+			<li><a href="clothes.html">Clothes</a></li>
+			
+			<li><a href="others.html">Others</a></li>
+		</ul>
 	</div>
 	
 	 <div>
@@ -22,33 +43,28 @@
 	</div>
 	
 	<div>
-		<form id="data">
-      		<fieldset>
-        		<legend >* Others * </legend>
-        			<p>
-          				<label>Introduce the product name:</label>
-          					
-          						<input id="ProductName">
-          				<div>	
-          				<label> Introduce the purchase sum: </label>
+		<div id="data">
+          		<div class="purchaseSum" >	
+          			<h1>INTRODUCE THE PURCHASE SUM:</h1> 
+          		</div>
           				
-          						<input id="PurchaseSum">
-          				</div>	
-          				<div>	
-          				<label>Total:</label>
+          		<div>
+          			<input id="InputSum">
+          		</div>
           				
-          						
-          				</div>
-          				<div>
-          				<p id="button">
+          		<div id="footer">	
+					<ul>
+						<li id="total">
+							<label>TOTAL</label>
+							<input>
+						</li>
+          				<li id="button">
         					<button type="button">SUBMIT</button>
-        				</p>
-        				</div>
-        			</p>
-  			</fieldset>
-        </form>
+        				</li>
+        			</ul>
+        		</div>
+    	</div>
     </div>
-    
    
 </body>	
 </html>
