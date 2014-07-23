@@ -115,7 +115,7 @@ a:hover{background-color: #C04000;}
 .image{
 	margin-left: 550px;
 	margin-top: 100px;
-	width: 180px;
+	width: 220px;
 	height: 280px;
 }
 
@@ -130,15 +130,18 @@ a:hover{background-color: #C04000;}
 	margin-right:250px;
 }
 
-#incometext{
+#incomeText{
 	background-color:#41A317;
 	margin-left:230px;
+}
+.fa fa-pencil{
+	margin-left:320px;
 }
 .date{
 	font: bold 50px ,Verdana, sans-serif;
 	margin-left:200px;
 }
-#incomedate{
+#incomeDate{
 	background-color:#41A317;
 	margin-left:30px;
 	
@@ -158,8 +161,9 @@ a:hover{background-color: #C04000;}
 	height: 45px;
 	background-color: #F88158;
 }
-#submitButton{
+#Save{
 	margin-left:300px;
 	margin-top:10px;
 	height: 30px;
 }
+
