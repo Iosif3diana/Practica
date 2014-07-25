@@ -22,8 +22,60 @@
 
 			<div id="scoreWrapper">
 				<div id="score">
+					<input type='text' id='pointss'/>
 					
-					<h2>1234</h2>
+					<script>
+						
+						function Points(value){
+						
+						x=value;
+
+						if (x<=50){	
+							localStorage.setItem('points',1);
+							value=localStorage.getItem('points');
+							confirm("<50 "+ value);
+							//document.getElementById('score_val').value=value;
+						}
+						else if (x>50 && x<=100){
+							localStorage.setItem('points',2);
+							value=localStorage.getItem('points');
+							confirm(">50 "+value);
+							//document.getElementById('score_val').value=value;
+
+						}
+						else if (x>100 && x<=200){
+							localStorage.setItem('points',3);
+							value=localStorage.getItem('points');
+							//confirm("OK? "+ value);
+							//document.getElementById('score_val').value=value;
+						} 	
+						else if (x>200 && x<=500){
+							localStorage.setItem('points',4);
+							value=localStorage.getItem('points');
+							//confirm("OK? "+ value);
+							//document.getElementById('score_val').value=value;
+						} 	
+						else {
+							localStorage.setItem('points',5);
+							value=localStorage.getItem('points');
+							//confirm("OK? "+ value);
+							//document.getElementById('score_val').value=value;
+						}
+
+					};
+
+					function TotalScore(){
+						//localStorage.clear();
+						//localStorage.setItem('score',0);
+						sum = +localStorage.getItem('PointsScore') + localStorage.getItem('points');
+						localStorage.setItem('PointsScore',sum);
+						v=parseInt(localStorage.getItem('PointsScore'),10);
+						confirm("scor total "+v+" ?");	
+						confirm("points "+localStorage.getItem('points')+" ?");
+						document.getElementById('pointss').value=v;
+					
+						};
+					</script>
 				</div>
 						<div id="scoreIcon">
 							<i class="fa fa-trophy fa-2x"></i>
@@ -73,11 +125,13 @@
 						
 						var save_button = document.getElementById('Save');
 						save_button.addEventListener("click", add, false);
+						save_button.addEventListener("click", TotalScore, false);
 							//save_button.onclick = saveData;
 							//save_button.onclick =add;
 							
 						function add()
 						{
+							
 							var sum = parseInt(localStorage.getItem("totalSum"), 10);
 							console.log("Sum: ", sum);
 							
@@ -86,9 +140,10 @@
 							localStorage.setItem("totalSum", sum);
 							
 							document.getElementById("totalSum").value = sum;
-							
+							nr = document.getElementById("InputSum").value;
+							Points(nr);
+
 							document.getElementById("InputSum").value = "";
-							
 						}
 		
 						/*function saveData(){
