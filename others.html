@@ -33,13 +33,13 @@
 						if (x<=50){	
 							localStorage.setItem('points',1);
 							value=localStorage.getItem('points');
-							confirm("<50 "+ value);
+							//confirm("<50 "+ value);
 							//document.getElementById('score_val').value=value;
 						}
 						else if (x>50 && x<=100){
 							localStorage.setItem('points',2);
 							value=localStorage.getItem('points');
-							confirm(">50 "+value);
+							//confirm(">50 "+value);
 							//document.getElementById('score_val').value=value;
 
 						}
@@ -67,10 +67,10 @@
 					function TotalScore(){
 						//localStorage.clear();
 						//localStorage.setItem('score',0);
-						sum = +localStorage.getItem('PointsScore') + localStorage.getItem('points');
+						sum = +localStorage.getItem('PointsScore') + +localStorage.getItem('points');
 						localStorage.setItem('PointsScore',sum);
-						v=parseInt(localStorage.getItem('PointsScore'),10);
-						confirm("scor total "+v+" ?");	
+						v=localStorage.getItem('PointsScore');
+						//confirm("scor total "+v+" ?");	
 						confirm("points "+localStorage.getItem('points')+" ?");
 						document.getElementById('pointss').value=v;
 					
