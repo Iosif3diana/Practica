@@ -2,165 +2,28 @@
 <html>
 <head>
 	<title>Cyber Me/Bills/Others</title>
-	<link href="(your styles folder)/style/toolbars.css" rel="stylesheet" type="text/css">
-	<link href="(your styles folder)/icons/styles/action_icons.css" rel="stylesheet" type="text/css">
-	<link type="text/css" rel="stylesheet" href="others.css"/>
+	
+	<link type="text/css" rel="stylesheet" href="css/Bills_others.css"/>
+	<link type="text/css" rel="stylesheet" href="css/Bills_othersAction_menu.css"/>
 	<link rel="stylesheet" href="font-awesome-4.1.0/css/font-awesome.min.css">
+	<!--link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"--> 
+  	<!--link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"-->
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
-  	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> 	
-  	<script type="text/javascript" src="others.js"></script>
-  	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> 
-  	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<script>
+  	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> 
+  	<script type="text/javascript" src="js/Bills_others.js"></script>	
+  	<script type="text/javascript" src="js/Bills_othersIndexDB.js"></script>
+  	<script type="text/javascript" src="js/Bills_othersFunctions.js"></script>
+  	<script type="text/javascript" src="js/jQuery.js"></script>
   	
-  /**
-   * The Data Base
-   */
-  		var database = {};
 
-		(function (exports) {
-	
-    		// IndexedDB
-    	var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.OIndexedDB || window.msIndexedDB,
-        dbVersion = 1.0;
-			
-			//This line deletes the database - used for testing purposes
-			//indexedDB.deleteDatabase("imageFiles");
-
-    		// Create/open database
-    	var request = indexedDB.open("database", dbVersion),
-		
-        db,
-				
-			//Method for creating the <image> objectStore in indexedDB
-        createObjectStore = function (dataBase) {
-            	// Create an objectStore
-            dataBase.createObjectStore("data", { autoIncrement : true });
-        };
-				
-		//Method for inserting a picture in IndexedDB; It first removes a picture if there are maximum pictures already stored;
-		insertItem = function(item){
-					
-			// Open a transaction to the database
-		    var transaction = db.transaction(["data"], "readwrite");
-					
-		    // Put the blob into the database
-		   	var put = transaction.objectStore("data").put(item);
-
-		},
-				
-			//Method for getting a picture by id
-		getItemById = function(id, callback){
-		  
-		  callback = callback || function(){};	
-          	// Open a transaction to the database
-          var transaction = db.transaction(["data"], "readwrite");
-					
-          	// Retrieve the file that was just stored
-          transaction.objectStore("data").get(id).onsuccess = function (event) {
-              var item = event.target.result;
-			  callback(item);
-          };
-		},
-					
-			//Method for getting all stored pictures from indexedDB	
-		getAllItems = function(callback){
-			
-			callback = callback || function(){};
-			var items = [];
-			var dataObjectStore = db.transaction(["data"], "readwrite").objectStore("data");
-
-			dataObjectStore.openCursor().onsuccess = function(event) {
-				var cursor = event.target.result;
-				if (cursor) {
-					items.push({key: cursor.key, value: cursor.value});
-					    cursor.continue();
-				}
-				else {
-						console.log("The records from db are : ", items);
-						callback(items);
-					  }
-			};
-		},
-				
-			//Method for deleting the picture with the lowest id(the "older" picture) from idexedDB
-		deleteItem = function(id, callback){
-			
-			callback = callback || function(){};		
-			var request = db.transaction(["data"], "readwrite")
-							.objectStore("data")
-					        .delete(id);
-			request.onsuccess = function(event) {
-				callback();
-			};
-					
-		};
- 
-    request.onerror = function (event) {
-        console.log("Error creating/accessing IndexedDB database");
-    };
- 
-    request.onsuccess = function (event) {
-        db = request.result;
-        
-        insertItem("diana");
-        getAllItems();
- 
-        db.onerror = function (event) {
-            console.log("Error creating/accessing IndexedDB database");
-        };
-    };
-    
-    // For future use. Currently only in latest Firefox versions
-    request.onupgradeneeded = function (event) {
-		createObjectStore(request.result);
-    };
-		
-	//Here we export all the methods that we need in the other parts of the application
-	exports.insertItem = insertItem;
-	exports.getItemById = getItemById;
-	exports.getAllItems = getAllItems;
-	exports.deleteItem = deleteItem;
-		
-})
-(database);
-	
-	/**
-	 * Modal Script
-	 */
-            var modal= document.getElementById('modal');
-            var shade= document.getElementById('action_menu');
-            document.getElementById('start').onclick= function() {
-                modal.style.display=shade.style.display= 'inline';
-            };
-            document.getElementById('close').onclick= function() {
-                modal.style.display=shade.style.display= 'none';
-            };
-
-            // This code is a workaround for IE6's lack of support for the
-            // position: fixed style.
-            //
-            if (!('maxHeight' in document.body.style)) {
-                function modalsize() {
-                    var top= document.documentElement.scrollTop;
-                    var winsize= document.documentElement.offsetHeight;
-                    var docsize= document.documentElement.scrollHeight;
-                    shade.style.height= Math.max(winsize, docsize)+'px';
-                    modal.style.top= top+Math.floor(winsize/3)+'px';
-                };
-                modal.style.position=shade.style.position= 'absolute';
-               
-                window.onscroll=window.onresize= modalsize;
-                modalsize();
-            }
-  	</script>
   	
 </head>
 
 <body>
 		<div class="topMenu" id="topMenuBorder">
 			<div id="caracterIcon">
-				<img src="logo_20140718.png">
+				<img src="icon/logo_20140718.png">
 			</div>
 
 			<div id="userName">
@@ -194,7 +57,7 @@
 	<div id="secondbar">
 		<ol>
 			<li id="button"> 
-				<button type="button" id='start'><i class="fa fa-plus fa-1x"></i> </button>
+				<button type="button" id="start"><i class="fa fa-plus fa-1x"></i> </button>
 			</li>
 			<li>Day</li>
 			<li>Week</li>
@@ -206,117 +69,42 @@
 			</li>		
 		</ol>
 	</div>
-
-	<section id="action-menu" data-position="back" class="fullscreen" display:"none">
-		<form role="dialog" data-type="action" onsubmit="return false;" > 
+	
+	<div id="headers">
+			<div class="headerNames" id="nameHeader">Name</div>
+            <div class="headerNames" id="priceHeader">Price</div>
+			<div class="headerNames" id="dateHeader">Date</div>
+           
+        </div>
+        <div id="ProductList">
+        	<div class="EventListFields" id="Name"></div>
+            <div class="EventListFields" id="Price"></div>
+			<div class="EventListFields" id="Date"></div>
+        </div>
+        <ul id="listItems">
+        	
+        </ul>
+	
+	<section id="action-menu" data-position="back" class="fullscreen" style="display: none">
+		<form role="dialog" data-type="action" onsubmit="return false;"> 
 			<header>Add Product</header> 
 			<!-- this header is optional -->
  				<menu type="toolbar"> 
 					<form> 
-						<div id="modal">
-							<input type="text" class="mod" id="Name">
-							<input type='text' name="server" id="InputSum"> <i class="fa fa-usd"></i>
-							<input type="text" class="mod" id="incomeDate"> <i class="fa fa-calendar"></i>
+						<input type="text" class="mod" id="nameId" placeholder="Name">
+						<input type='text' class="mod" name="server" id="InputSum" placeholder="InputSum"> <i class="fa fa-usd"></i>
+						<input type="text" class="dati" id="incomeDate" placeholder="incomeDate"> <i class="fa fa-calendar"></i>
 						
-						<button class="mod" id="Save"> Add </button>
- 						<button class="mod" id="close"> Cancel </button> 
- 						</div>
+						<button class="modal" id="Save"> Add </button>
+ 						<button class="modal" id="close"> Cancel </button> 
+ 			
  					</form>
- 					</menu>
-				</form> 
-				
+ 				</menu>
+			</form> 
+
 	</section>
 	
-    <script>
-						
-						function Points(value){
-						
-						x=value;
-						
-						if(x==0){
-							alert("Please introduce a sum!");
-							localStorage.setItem('points',0);
-							value=localStorage.getItem('points');
-						}
-
-						else if (x>=1 && x<=50){	
-							localStorage.setItem('points',1);
-							value=localStorage.getItem('points');
-							//confirm("<50 "+ value);
-							//document.getElementById('score_val').value=value;
-						}
-						else if (x>50 && x<=100){
-							localStorage.setItem('points',2);
-							value=localStorage.getItem('points');
-							//confirm(">50 "+value);
-							//document.getElementById('score_val').value=value;
-
-						}
-						else if (x>100 && x<=200){
-							localStorage.setItem('points',3);
-							value=localStorage.getItem('points');
-							//confirm("OK? "+ value);
-							//document.getElementById('score_val').value=value;
-						} 	
-						else if (x>200 && x<=500){
-							localStorage.setItem('points',4);
-							value=localStorage.getItem('points');
-							//confirm("OK? "+ value);
-							//document.getElementById('score_val').value=value;
-						} 	
-						else if (x>500){
-							localStorage.setItem('points',5);
-							value=localStorage.getItem('points');
-							//confirm("OK? "+ value);
-							//document.getElementById('score_val').value=value;
-						}
-						else{
-							localStorage.setItem('points',0);
-							value=localStorage.getItem('points');
-						}
-
-					};
-
-					function TotalScore(){
-						//localStorage.clear();
-						
-						sum = +localStorage.getItem('PointsScore') + +localStorage.getItem('points');
-						localStorage.setItem('PointsScore',sum);
-						v=localStorage.getItem('PointsScore');
-						//confirm("scor total "+v+" ?");	
-						confirm("You receive "+localStorage.getItem('points')+" points !!!");
-						document.getElementById('pointss').textContent=v;
-						console.log(document.getElementById('pointss').textContent);
-					
-						};
-						
-						localStorage.setItem("totalSum", 0);
-						
-						var save_button = document.getElementById('Save');
-						save_button.addEventListener("click", add, false);
-						save_button.addEventListener("click", TotalScore, false);
-						
-							
-						function add()
-						{
-							
-							var sum = parseInt(localStorage.getItem("totalSum"), 10);
-							console.log("Sum: ", sum);
-							
-							sum += parseInt(document.getElementById("InputSum").value, 	10);
-							
-							localStorage.setItem("totalSum", sum);
-							
-							document.getElementById("totalSum").value = sum;
-							nr = document.getElementById("InputSum").value;
-							Points(nr);
-							document.getElementById("InputSum").value = "";
-							document.getElementById("Name").value= "";
-							document.getElementById("incomeDate").value= "";
-						}
-				
-      </script>
- 
-   
+	<section id ="Status" role="status" style="display: none">
+	</section>
 </body>	
 </html>
