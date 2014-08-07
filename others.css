@@ -1,5 +1,6 @@
 html{
 	background-color:#FFF5EE;
+	border:none;
 	
 }
 body{
@@ -12,8 +13,7 @@ body{
 #topMenuBorder {
 	width: 19rem;
 	height: 3.3rem;	
-	margin: 0;
-	padding: 0;
+	border:none;
 	background-color: #1f262c;
 	display: inline-block;
 	vertical-align:middle;
@@ -141,11 +141,10 @@ a:hover{background-color: #C04000;}
 }
 
 
-#InputSum{
-
-	margin-left: 0rem;
+.mod{
+	margin-left:2rem;
+	
 }
-
 
 #total{
 	display:inline-block;
@@ -158,6 +157,84 @@ a:hover{background-color: #C04000;}
 	height: 1rem;
 
 }
-#OpenModal{
+#start{
 	margin-left:0.6rem;	
 }
+#Save{
+	margin-top:4rem;
+}
+#ui-datepicker-div{
+	margin: 2rem 12rem 7rem 7rem;
+	background-color:#888888;
+}
+/* Content */
+
+
+/* Headers (Date, Location, Message, Hour1, Hour2 ) */
+
+#headers{
+	margin-top:3rem;
+	text-align: center; 
+	font-size: 1rem;
+	margin-bottom:1rem;
+}
+
+.headerNames{
+	width:5rem; 
+	display:inline-block;
+	border: 1px solid #FFCC99;
+	font-weight: bold;
+	color: #993300;
+}
+
+#nameHeader{
+	width:5.5rem;
+}
+
+
+/* Event list */
+
+#ProductList{
+	margin-top:0.5rem; 
+	text-align: center; 
+	font-size: 1rem; 
+	width:100%;
+	overflow: scroll;
+	height: 27rem;
+}
+
+.ProductListFields{
+	width:5rem; 
+	display:inline-block;
+	vertical-align:top;
+	word-wrap:break-word;
+}
+
+/* The message field from the event list*/
+
+#DateAppend{
+	margin-left:-1rem; 
+	min-height:2.5rem; 
+	max-height:2.5rem; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+}
+
+#NameAppend{
+	min-height:2.5rem; 
+	max-height:2.5rem; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+}
+
+section[role="status"] p{
+	word-wrap:normal;
+}
+section[role="status"]{
+	bottom: -1rem !important;
+}
+
+#incomeDate{
+	margin-left:2rem;
+}
+
